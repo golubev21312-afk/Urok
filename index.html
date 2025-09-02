@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Андрей Голубев </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+        
+        body {
+            background-color: #f8f4e9;
+            color: #333;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23e67e22" opacity="0.1" d="M50,0 C77.614,0 100,22.386 100,50 C100,77.614 77.614,100 50,100 C22.386,100 0,77.614 0,50 C0,22.386 22.386,0 50,0 Z M50,85 C68.777,85 84,69.777 84,50 C84,30.223 68.777,15 50,15 C31.223,15 16,30.223 16,50 C16,69.777 31.223,85 50,85 Z"></path></svg>');
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1 0 auto;
+        }
+        
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ffffff" opacity="0.1" d="M50,0 C77.614,0 100,22.386 100,50 C100,77.614 77.614,100 50,100 C22.386,100 0,77.614 0,50 C0,22.386 22.386,0 50,0 Z M50,85 C68.777,85 84,69.777 84,50 C84,30.223 68.777,15 50,15 C31.223,15 16,30.223 16,50 C16,69.777 31.223,85 50,85 Z"></path></svg>');
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            margin-left: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: #f1c40f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        /* Социальные иконки */
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            background: white;
+            color: #e67e22;
+            border-radius: 50%;
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            color: #d35400;
+        }
+        
+        /* Основной контент */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+        
+        section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h3 {
+            color: #e67e22;
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f1c40f;
+            display: flex;
+            align-items: center;
+        }
+        
+        h3 i {
+            margin-right: 10px;
+        }
+        
+        /* Опыт работы */
+        .experience-item {
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 3px solid #e67e22;
+        }
+        
+        .experience-item h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .experience-item .date {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        
+        /* Хобби */
+        .hobbies {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .hobby {
+            background: #f8f4e9;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            min-width: 110px;
+            transition: all 0.3s ease;
+        }
+        
+        .hobby:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hobby i {
+            font-size: 26px;
+            color: #e67e22;
+            margin-bottom: 8px;
+        }
+        
+        /* Карусель */
+        .carousel-container {
+            position: relative;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            height: 220px;
+        }
+        
+        .carousel {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .carousel-control {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .carousel-control.active {
+            background: white;
+        }
+        
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            color: #e67e22;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-arrow:hover {
+            background: white;
+        }
+        
+        .carousel-arrow.prev {
+            left: 10px;
+        }
+        
+        .carousel-arrow.next {
+            right: 10px;
+        }
+        
+        /* Боковая панель */
+        .sidebar {
+            position: relative;
+        }
+        
+        /* Часы и календарь */
+        .clock-calendar {
+            background: white;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        #clock {
+            font-size: 32px;
+            font-weight: bold;
+            color: #e67e22;
+            margin-bottom: 8px;
+        }
+        
+        #calendar {
+            font-size: 16px;
+            color: #333;
+        }
+        
+        /* Форма обратной связи */
+        .contact-form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        
+        .form-group textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+        
+        button {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+        
+        button:hover {
+            background: #d35400;
+        }
+        
+        .captcha {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .captcha-text {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            padding: 5px 10px;
+            background: #f8f4e9;
+            border-radius: 5px;
+            color: #e67e22;
+        }
+        
+        /* Футер */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #7f8c8d;
+            margin-top: 30px;
+            flex-shrink: 0;
+        }
+        
+        /* Анимации */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-photo {
+                margin: 15px 0 0 0;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 30px;
+            }
+            
+            h2 {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 20px 15px;
+            }
+            
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .hobby {
+                min-width: calc(50% - 10px);
+            }
+            
+            .carousel-container {
+                height: 180px;
+            }
+        }
+        
+        /* Специальные иконки */
+        .fa-wood:before {
+            content: "🔨";
+            font-style: normal;
+        }
+        
+        .fa-tinder:before {
+            content: "🔥";
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="profile-info">
+                    <h1>Андрей Голубев</h1>
+                    <h2>Столяр, будущий разработчик</h2>
+                    <p>Мечтаю переехать в Таиланд, развиваться в кодинге и создавать удивительные вещи</p>
+                    
+                    <div class="social-icons">
+                        <a href="https://www.threads.com/@black_aqua94" target="_blank" class="floating">
+                            <i class="fab fa-threads"></i>
+                        </a>
+                        <a href="https://www.instagram.com/black_aqua94?igsh=MThseGZtcmx6Y2VncQ==" target="_blank" class="floating" style="animation-delay: 0.5s;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://t.me/AndreyGolubevblac_aqua94" target="_blank" class="floating" style="animation-delay: 1s;">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://tinder.com/" target="_blank" class="floating" style="animation-delay: 1.5s;">
+                            <i class="fa fa-tinder"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="profile-photo">
+                    <img src="1234.jpg" width="200" alt="Фото"/>
+                    Ваше фото
+                </div>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="left-column">
+                <section class="about">
+                    <h3><i class="fas fa-user"></i> Обо мне</h3>
+                    <p>Привет! Меня зовут Андрей, и я столяр из Нижнего Тагила. У меня есть большая мечта — переехать в Таиланд и начать новую жизнь, совмещая работу на удалении и наслаждаясь теплым климатом и культурой Азии.</p>
+                    <p>В настоящее время я учусь программированию, чтобы сменить профессию и иметь возможность работать из любой точки мира.</p>
+                </section>
+                
+                <section class="experience">
+                    <h3><i class="fas fa-briefcase"></i> Опыт работы</h3>
+                    
+                    <div class="experience-item">
+                        <h4>МВидео</h4>
+                        <div class="date">2013-2014</div>
+                        <p>Консультант по продажам бытовой техники. Помогал клиентам выбрать подходящую технику, консультировал по характеристикам товаров.</p>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <h4>КДВ Группа</h4>
+                        <div class="date">2014-2015</div>
+                        <p>Работа на производстве пищевой продукции. Отвечал за контроль качества и работу оборудования.</p>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <h4>Столярная мастерская (Нижний Тагил)</h4>
+                        <div class="date">2015 - настоящее время</div>
+                        <p>Изготовление мебели и предметов интерьера на заказ. Работа с деревом, реставрация мебели, создание уникальных дизайнерских изделий.</p>
+                    </div>
+                </section>
+                
+                <section class="goals">
+                    <h3><i class="fas fa-bullseye"></i> Мои цели</h3>
+                    <ul>
+                        <li>Переехать в Таиланд и жить там постоянно</li>
+                        <li>Научиться программированию на профессиональном уровне</li>
+                        <li>Сменить профессию на разработчика</li>
+                        <li>Совмещать работу и путешествия по Азии</li>
+                        <li>Понять себя</li>
+                    </ul>
+                </section>
+                
+                <section class="hobbies-section">
+                    <h3><i class="fas fa-heart"></i> Увлечения</h3>
+                    <div class="hobbies">
+                        <div class="hobby">
+                            <i class="fas fa-plane"></i>
+                            <p>Путешествия</p>
+                        </div>
+                        <div class="hobby">
+                            <i class="fas fa-gamepad"></i>
+                            <p>Гейминг</p>
+                        </div>
+                        <div class="hobby">
+                            <i class="fa fa-wood"></i>
+                            <p>Столярное дело</p>
+                        </div>
+                        <div class="hobby">
+                            <i class="fas fa-laptop-code"></i>
+                            <p>Программирование</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="gallery">
+                    <h3><i class="fas fa-images"></i> Таиланд - моя мечта</h3>
+                    <div class="carousel-container">
+                        <div class="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Пляжи Таиланда">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1589394815804-964ed0e2d08b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Храмы Таиланда">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1531956531700-6e9a7624f0e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Тайская кухня">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1567008443392-310a9bd89149?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Слоны в Таиланде">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Тропические фрукты">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Живописные острова">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Природа Таиланда">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Фестивали Таиланда">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1596445836561-991bcd39ab2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Тайский массаж">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1598522325072-4d3d7d403ec3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Ночные рынки">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Тайский бокс">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://images.unsplash.com/photo-1566501206188-5dd0cf160a0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Достопримечательности">
+                                </div>
+                            </div>
+                            <button class="carousel-arrow prev">&#10094;</button>
+                            <button class="carousel-arrow next">&#10095;</button>
+                        </div>
+                        <div class="carousel-controls">
+                            <div class="carousel-control active"></div>
+                            <div class="carousel-control"></div>
+                            <div class="carousel-control"></div>
+                            <div class="carousel-control"></div>
+                            <div class="carousel-control"></div>
+                            <div class="carousel-control"></div>
+                            <div class="carousel-control"></div>
+                            <div class="carousel-control"></div>
+                            <div class="carousel-control"></div>
+                            <div class="carousel-control"></div>
+                            <div class="carousel-control"></div>
+                            <div class="carousel-control"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="sidebar">
+                <div class="clock-calendar">
+                    <div id="clock">00:00:00</div>
+                    <div id="calendar">Понедельник, 1 января 2023</div>
+                </div>
+                
+                <section class="contact-form">
+                    <h3><i class="fas fa-envelope"></i> Написать мне</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" placeholder="Введите ваше имя">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Ваш email</label>
+                        <input type="email" id="email" placeholder="Введите ваш email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" placeholder="Напишите ваше сообщение..."></textarea>
+                    </div>
+                    
+                    <div class="captcha">
+                        <div class="captcha-text">T4IL</div>
+                        <input type="text" placeholder="Введите капчу">
+                    </div>
+                    
+                    <button type="submit">Отправить сообщение</button>
+                </section>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Андрей Голубев © 2025 | Мечтаю о Таиланде</p>
+        </footer>
+    </div>
+
+    <script>
+        // Часы и календарь
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+            
+            const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+            const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+            
+            const day = days[now.getDay()];
+            const date = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            
+            document.getElementById('calendar').textContent = `${day}, ${date} ${month} ${year}`;
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock();
+        
+        // Карусель
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const controls = document.querySelectorAll('.carousel-control');
+        const carouselInner = document.querySelector('.carousel-inner');
+        const prevButton = document.querySelector('.carousel-arrow.prev');
+        const nextButton = document.querySelector('.carousel-arrow.next');
+        
+        function showSlide(index) {
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            
+            carouselInner.style.transform = `translateX(-${index * 100}%)`;
+            
+            controls.forEach((control, i) => {
+                control.classList.toggle('active', i === index);
+            });
+            
+            currentSlide = index;
+        }
+        
+        controls.forEach((control, index) => {
+            control.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        prevButton.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+        
+        nextButton.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+        
+        // Автопереключение слайдов
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Обработка формы
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Сообщение отправлено! Спасибо за ваше сообщение.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
