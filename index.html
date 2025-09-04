@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Андрей Голубев </title>
+    <title>Андрей Голубев</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
@@ -83,6 +83,12 @@
             align-items: center;
             color: white;
             font-weight: bold;
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         h1 {
@@ -383,6 +389,9 @@
             background: #f8f4e9;
             border-radius: 5px;
             color: #e67e22;
+            min-width: 80px;
+            text-align: center;
+            user-select: none;
         }
         
         /* Футер */
@@ -462,9 +471,18 @@
             font-style: normal;
         }
         
-        .fa-tinder:before {
-            content: "🔥";
-            font-style: normal;
+        /* Гарантия правильного отображения текста */
+        .text-content {
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        .text-content ul {
+            padding-left: 20px;
+        }
+        
+        .text-content li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -478,24 +496,20 @@
                     <p>Мечтаю переехать в Таиланд, развиваться в кодинге и создавать удивительные вещи</p>
                     
                     <div class="social-icons">
-                        <a href="https://www.threads.com/@black_aqua94" target="_blank" class="floating">
+                        <a href="https://www.threads.net/@black_aqua94" target="_blank" class="floating">
                             <i class="fab fa-threads"></i>
                         </a>
                         <a href="https://www.instagram.com/black_aqua94?igsh=MThseGZtcmx6Y2VncQ==" target="_blank" class="floating" style="animation-delay: 0.5s;">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://t.me/AndreyGolubevblac_aqua94" target="_blank" class="floating" style="animation-delay: 1s;">
+                        <a href="https://t.me/blac_aqua94" target="_blank" class="floating" style="animation-delay: 1s;">
                             <i class="fab fa-telegram"></i>
-                        </a>
-                        <a href="https://tinder.com/" target="_blank" class="floating" style="animation-delay: 1.5s;">
-                            <i class="fa fa-tinder"></i>
                         </a>
                     </div>
                 </div>
                 
                 <div class="profile-photo">
-                    <img src="1234.jpg" width="200" alt="Фото"/>
-                    Ваше фото
+                    <img src="1234.jpg" alt="Фото Андрея Голубева"/>
                 </div>
             </div>
         </header>
@@ -504,41 +518,46 @@
             <div class="left-column">
                 <section class="about">
                     <h3><i class="fas fa-user"></i> Обо мне</h3>
-                    <p>Привет! Меня зовут Андрей, и я столяр из Нижнего Тагила. У меня есть большая мечта — переехать в Таиланд и начать новую жизнь, совмещая работу на удалении и наслаждаясь теплым климатом и культурой Азии.</p>
-                    <p>В настоящее время я учусь программированию, чтобы сменить профессию и иметь возможность работать из любой точки мира.</p>
+                    <div class="text-content">
+                        <p>Привет! Меня зовут Андрей, я столяр из Нижнего Тагила. У меня есть большая мечта — переехать в Таиланд и начать новую жизнь, совмещая работу на удалении и наслаждаясь теплым климатом и культурой Азии.</p>
+                        <p>В настоящее время я учусь программированию, чтобы сменить профессию и иметь возможность работать из любой точки мира.</p>
+                    </div>
                 </section>
                 
                 <section class="experience">
                     <h3><i class="fas fa-briefcase"></i> Опыт работы</h3>
-                    
-                    <div class="experience-item">
-                        <h4>МВидео</h4>
-                        <div class="date">2013-2014</div>
-                        <p>Консультант по продажам бытовой техники. Помогал клиентам выбрать подходящую технику, консультировал по характеристикам товаров.</p>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <h4>КДВ Группа</h4>
-                        <div class="date">2014-2015</div>
-                        <p>Работа на производстве пищевой продукции. Отвечал за контроль качества и работу оборудования.</p>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <h4>Столярная мастерская (Нижний Тагил)</h4>
-                        <div class="date">2015 - настоящее время</div>
-                        <p>Изготовление мебели и предметов интерьера на заказ. Работа с деревом, реставрация мебели, создание уникальных дизайнерских изделий.</p>
+                    <div class="text-content">
+                        <div class="experience-item">
+                            <h4>МВидео</h4>
+                            <div class="date">2013-2014</div>
+                            <p>Консультант по продажам бытовой техники. Помогал клиентам выбрать подходящую технику, консультировал по характеристикам товаров.</p>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <h4>КДВ Группа</h4>
+                            <div class="date">2014-2015</div>
+                            <p>Работа на производстве пищевой продукции. Отвечал за контроль качества и работу оборудования.</p>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <h4>Столярная мастерская (Нижний Тагил)</h4>
+                            <div class="date">2015 - настоящее время</div>
+                            <p>Изготовление мебели и предметов интерьера на заказ. Работа с деревом, реставрация мебели, создание уникальных дизайнерских изделий.</p>
+                        </div>
                     </div>
                 </section>
                 
                 <section class="goals">
                     <h3><i class="fas fa-bullseye"></i> Мои цели</h3>
-                    <ul>
-                        <li>Переехать в Таиланд и жить там постоянно</li>
-                        <li>Научиться программированию на профессиональном уровне</li>
-                        <li>Сменить профессию на разработчика</li>
-                        <li>Совмещать работу и путешествия по Азии</li>
-                        <li>Понять себя</li>
-                    </ul>
+                    <div class="text-content">
+                        <ul>
+                            <li>Переехать в Таиланд и жить там постоянно</li>
+                            <li>Научиться программированию на профессиональном уровне</li>
+                            <li>Сменить профессию на разработчика</li>
+                            <li>Совмещать работу и путешествия по Азии</li>
+                            <li>Понять себя</li>
+                        </ul>
+                    </div>
                 </section>
                 
                 <section class="hobbies-section">
@@ -564,7 +583,7 @@
                 </section>
                 
                 <section class="gallery">
-                    <h3><i class="fas fa-images"></i> Таиланд - моя мечта</h3>
+                    <h3><i class="fas fa-images"></i> Таиланд - цель к которой я иду</h3>
                     <div class="carousel-container">
                         <div class="carousel">
                             <div class="carousel-inner">
@@ -586,36 +605,12 @@
                                 <div class="carousel-item">
                                     <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Живописные острова">
                                 </div>
-                                <div class="carousel-item">
-                                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Природа Таиланда">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Фестивали Таиланда">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://images.unsplash.com/photo-1596445836561-991bcd39ab2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Тайский массаж">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://images.unsplash.com/photo-1598522325072-4d3d7d403ec3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Ночные рынки">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Тайский бокс">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://images.unsplash.com/photo-1566501206188-5dd0cf160a0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Достопримечательности">
-                                </div>
                             </div>
                             <button class="carousel-arrow prev">&#10094;</button>
                             <button class="carousel-arrow next">&#10095;</button>
                         </div>
                         <div class="carousel-controls">
                             <div class="carousel-control active"></div>
-                            <div class="carousel-control"></div>
-                            <div class="carousel-control"></div>
-                            <div class="carousel-control"></div>
-                            <div class="carousel-control"></div>
-                            <div class="carousel-control"></div>
-                            <div class="carousel-control"></div>
                             <div class="carousel-control"></div>
                             <div class="carousel-control"></div>
                             <div class="carousel-control"></div>
@@ -651,8 +646,8 @@
                     </div>
                     
                     <div class="captcha">
-                        <div class="captcha-text">T4IL</div>
-                        <input type="text" placeholder="Введите капчу">
+                        <div class="captcha-text" id="captchaText">T4IL</div>
+                        <input type="text" id="captchaInput" placeholder="Введите капчу">
                     </div>
                     
                     <button type="submit">Отправить сообщение</button>
@@ -661,7 +656,7 @@
         </div>
         
         <footer>
-            <p>Андрей Голубев © 2025 | Мечтаю о Таиланде</p>
+            <p>Андрей Голубев © 2025 | Мечтаю переехать в Таиланд</p>
         </footer>
     </div>
 
@@ -729,11 +724,51 @@
             showSlide(currentSlide + 1);
         }, 5000);
         
+        // Генерация капчи
+        function generateCaptcha() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let captcha = '';
+            for (let i = 0; i < 4; i++) {
+                captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            document.getElementById('captchaText').textContent = captcha;
+        }
+        
         // Обработка формы
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Сообщение отправлено! Спасибо за ваше сообщение.');
-            this.reset();
+            
+            const captchaInput = document.getElementById('captchaInput').value;
+            const captchaText = document.getElementById('captchaText').textContent;
+            
+            if (captchaInput === captchaText) {
+                alert('Сообщение отправлено! Спасибо за ваше сообщение.');
+                this.reset();
+                generateCaptcha();
+            } else {
+                alert('Неверная капча. Попробуйте еще раз.');
+                generateCaptcha();
+            }
+        });
+        
+        // Инициализация капчи при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            generateCaptcha();
+            
+            // Предзагрузка изображений для карусели
+            const images = [
+                'https://images.unsplash.com/photo-1528181304800-259b08848526?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+                'https://images.unsplash.com/photo-1589394815804-964ed0e2d08b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+                'https://images.unsplash.com/photo-1531956531700-6e9a7624f0e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+                'https://images.unsplash.com/photo-1567008443392-310a9bd89149?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+                'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+                'https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
+            ];
+            
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
         });
     </script>
 </body>
